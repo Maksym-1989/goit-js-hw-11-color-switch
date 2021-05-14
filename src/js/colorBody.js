@@ -9,6 +9,7 @@ const colors = [
 
 const btnStartRef = document.querySelector('[data-action="start"]');
 const btnStopRef = document.querySelector('[data-action="stop"]');
+const btnClearRef = document.querySelector('[data-action="clear"]');
 const bodyRef = document.querySelector('body');
 
 const min = 0;
@@ -32,6 +33,14 @@ btnStartRef.addEventListener('click', () => {
 btnStopRef.addEventListener('click', event => {
   if (event.target === btnStopRef) {
     clearInterval(timerId);
+    btnStartRef.removeAttribute('disabled');
+  }
+});
+
+btnClearRef.addEventListener('click', event => {
+  if (event.target === btnClearRef) {
+    clearInterval(timerId);
+    bodyRef.style.backgroundColor = '';
     btnStartRef.removeAttribute('disabled');
   }
 });
