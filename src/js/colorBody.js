@@ -33,7 +33,7 @@ btnStartRef.addEventListener('click', () => {
 btnStopRef.addEventListener('click', event => {
   if (event.target === btnStopRef) {
     clearInterval(timerId);
-    btnStartRef.removeAttribute('disabled');
+    removeAttribute();
   }
 });
 
@@ -41,6 +41,10 @@ btnClearRef.addEventListener('click', event => {
   if (event.target === btnClearRef) {
     clearInterval(timerId);
     bodyRef.style.backgroundColor = '';
-    btnStartRef.removeAttribute('disabled');
+    removeAttribute();
   }
 });
+
+function removeAttribute() {
+  btnStartRef.removeAttribute('disabled');
+}
